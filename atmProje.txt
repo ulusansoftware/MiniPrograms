@@ -1,0 +1,48 @@
+package JavaMiniPrograms;
+
+import java.util.Scanner;
+
+public class atmProje {
+
+	public static void main(String[] args) {
+		int bakiye = 0, input, miktar;
+		Scanner scan = new Scanner(System.in);
+
+		System.out.println("Welcome To The ULUSAN SOFTWARE BANK!!");
+		System.out.println("Welcome To The ULUSAN SOFTWARE!!");
+		System.out.println("Guncel Bakiyeniz :" + bakiye + "TL");
+
+		while (bakiye <= 0) {
+			System.out.println();
+			System.out.println("1-) Para Yatir ");
+			System.out.println("2-) Para Cek");
+			System.out.println("3-) Bakiye Sorgula");
+			System.out.println("4-) Guvenli Cikis Yap");
+			System.out.print("Yapmak istediginiz Islemi Seciniz :");
+			input = scan.nextInt();
+
+			if (input == 1) {
+				System.out.print("Yatirmak Istediginiz Miktar:" + "TL");
+				miktar = scan.nextInt();
+				bakiye += miktar;
+			} else if (input == 2) {
+				System.out.println("Cekmek istediginiz Miktar :" + "TL");
+				miktar = scan.nextInt();
+				if (miktar > bakiye) {
+					System.out.println("Yetersiz Bakiye!!");
+				} else {
+					bakiye -= miktar;
+				}
+			} else if (input == 3) {
+				System.out.println("Guncel Bakiyeniz :" + bakiye + "TL");
+			} else if (input == 4) {
+				System.out.println("Cikis Yapiliyor Lütfen Bekleyiniz!!");
+				break;
+			} else {
+				System.out.println("Gecersiz Bir Islem Girdiniz!!");
+			}
+		}
+		System.out.println("Tekrar Bekleriz... ");
+	}
+
+}
