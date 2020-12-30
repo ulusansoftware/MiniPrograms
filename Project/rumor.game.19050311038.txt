@@ -1,0 +1,198 @@
+def soru1():
+    import random
+    person=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+    sayilar=range(1,100)
+    p=0.15
+    n=0.85
+    t=1
+    bilen=[1,2]
+    while len(bilen)<20 :
+        d= random.sample(sayilar,2)
+        s=random.sample(person,2) 
+        a=(p*100)
+        b=(n*100)
+        if s[1] in bilen and s[0] in bilen : 
+            t+=1
+            continue   
+        elif (d[0]<=a and d[1]>a):
+           if s[1]==1 or s[0]==1:
+               if s[0] ==1 :             
+                   t+=1
+                   bilen.append(s[1])
+               elif s[1] ==1:
+                   t+=1
+                   bilen.append(s[0])
+           elif s[0] in bilen:
+               t+=1
+               bilen.append(s[1])
+           elif s[1] in bilen:
+               t+=1
+               bilen.append(s[0])
+           else :
+               t+=1    
+        elif d[1]<=a and d[0]>a :
+            if s[1]==1 or s[0]==1:         
+                if s[0] ==1:                 
+                    t+=1
+                    bilen.append(s[1])
+                elif s[1] ==1 : 
+                    t+=1
+                    bilen.append(s[0])
+            elif s[1] in bilen:
+                bilen.append(s[0]) 
+                t+=1
+            elif s[0] in bilen: 
+              t+=1
+              bilen.append(s[1])
+            else :
+                t+=1
+        else : 
+            t+=1
+    return t
+n=0
+for i in range(200):
+    x=soru1()
+    n+=x
+average=n/200
+print("Average time is",average) 
+
+def soru2():
+    import random
+    person=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+    sayilar=range(1,100)
+    p=0.15
+    n=0.85
+    t=0
+    h=0
+    bilen=[1]
+    while len(bilen)<20 :
+        d= random.sample(sayilar,2)
+        s=random.sample(person,2) 
+        a=(p*100)
+        b=(n*100)
+        if s[1] in bilen and s[0] in bilen : 
+            t+=1
+            if len(bilen)>=15 and t<=100:       
+                h+=1
+                break
+            continue   
+        elif (d[0]<=a and d[1]>a):
+           if s[1]==1 or s[0]==1:
+               if s[0] ==1 :             
+                   t+=1
+                   bilen.append(s[1])
+               elif s[1] ==1:
+                   t+=1
+                   bilen.append(s[0])
+           elif s[0] in bilen:
+               t+=1
+               bilen.append(s[1])
+           elif s[1] in bilen:
+               t+=1
+               bilen.append(s[0])
+           else :
+               t+=1 
+           if len(bilen)>=15 and t<=100:
+               h+=1
+               break    
+        elif d[1]<=a and d[0]>a :
+            if s[1]==1 or s[0]==1:         
+                if s[0] ==1:                 
+                    t+=1
+                    bilen.append(s[1])
+                elif s[1] ==1 : 
+                    t+=1
+                    bilen.append(s[0])
+            elif s[1] in bilen:
+                bilen.append(s[0]) 
+                t+=1
+            elif s[0] in bilen: 
+              t+=1
+              bilen.append(s[1])
+            else :
+                t+=1
+            if len(bilen)>=15 and t<=100: 
+                h+=1  
+                break
+        else : 
+            t+=1      
+    return h
+
+s=0
+for i in range(200):
+    x=soru2()
+    if x==1:
+        s+=1
+m=s/200
+print("Probability that at least 15 people know the humor at time t=100 is", m )   
+
+
+def soru3():
+    import random
+    person=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+    sayilar=range(1,100)
+    p=0.15
+    n=0.85
+    t=0
+    h=0
+    bilen=[1]
+    while len(bilen)<20 :
+        d= random.sample(sayilar,2)
+        s=random.sample(person,2) 
+        a=(p*100)
+        b=(n*100)
+        if s[1] in bilen and s[0] in bilen : 
+            t+=1
+            if len(bilen)<=2 and t<=10:       
+                h+=1
+                break
+            continue   
+        elif (d[0]<=a and d[1]>a):
+           if s[1]==1 or s[0]==1:
+               if s[0] ==1 :             
+                   t+=1
+                   bilen.append(s[1])
+               elif s[1] ==1:
+                   t+=1
+                   bilen.append(s[0])
+           elif s[0] in bilen:
+               t+=1
+               bilen.append(s[1])
+           elif s[1] in bilen:
+               t+=1
+               bilen.append(s[0])
+           else :
+               t+=1 
+           if len(bilen)<=2 and t<=10:
+               h+=1
+               break    
+        elif d[1]<=a and d[0]>a :
+            if s[1]==1 or s[0]==1:         
+                if s[0] ==1:                 
+                    t+=1
+                    bilen.append(s[1])
+                elif s[1] ==1 : 
+                    t+=1
+                    bilen.append(s[0])
+            elif s[1] in bilen:
+                bilen.append(s[0]) 
+                t+=1
+            elif s[0] in bilen: 
+              t+=1
+              bilen.append(s[1])
+            else :
+                t+=1
+            if len(bilen)<=2 and t<=10: 
+                h+=1  
+                break
+        else : 
+            t+=1      
+    return h
+
+s=0
+for i in range(200):
+    x=soru3()
+    if x==1:
+        s+=1
+m=s/200
+print("Probability that at most 2 people know the humor at time t=10 is", m)
